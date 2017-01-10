@@ -16,5 +16,5 @@ public interface ButtonInterfaceEdwin extends Clickable {
 	void dim();
 
 	void gameOver();
-
+//
 }
