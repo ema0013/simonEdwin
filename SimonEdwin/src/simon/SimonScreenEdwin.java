@@ -103,7 +103,7 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 
 	private MoveInterfaceEdwin getMove(ButtonInterfaceEdwin move) {
 		// TODO Auto-generated method stub
-		return Move();
+		return new partnerCodeInHerePlease.Move(move);
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 	*/
 	private ProgressInterfaceEdwin getProgress() {
 		// TODO Auto-generated method stub
-		return Progress();
+		return new partnerCodeInHerePlease.Progress();
 	}
 
 	private void addButtons() {
@@ -160,7 +160,7 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 
 	private ButtonInterfaceEdwin getAButton() {
 		// TODO Auto-generated method stub
-		return Button();
+		return new partnerCodeInHerePlease.Button();
 		//
 	}
 
