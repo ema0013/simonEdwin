@@ -101,6 +101,11 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 		return getMove(buttons[randomButton]);
 	}
 
+	private MoveInterfaceEdwin getMove(ButtonInterfaceEdwin move) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	/**
 	Placeholder until partner finishes implementation of ProgressInterface
 	*/
