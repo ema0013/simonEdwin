@@ -5,10 +5,12 @@ import simon.MoveInterfaceEdwin;
 
 public class Move implements MoveInterfaceEdwin {
 
-	public Move() {
+	public Move(ButtonInterfaceEdwin move) {
+		getButton();
 	}
 
 	public ButtonInterfaceEdwin getButton() {
+		
 		return null;
 	}
 
