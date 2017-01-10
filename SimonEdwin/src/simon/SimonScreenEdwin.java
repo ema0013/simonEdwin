@@ -161,6 +161,7 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 	private ButtonInterfaceEdwin getAButton() {
 		// TODO Auto-generated method stub
 		return Button();
+		//
 	}
 
 }
