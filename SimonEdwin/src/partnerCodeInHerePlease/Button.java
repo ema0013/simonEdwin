@@ -8,11 +8,15 @@ import simon.ButtonInterfaceEdwin;
 
 public class Button implements ButtonInterfaceEdwin {
 
+	private Color color;
+	private Color displayColor;
+	private Action action;
+	
 	public Button() {
 	}
 
 	public void act() {
-		
+		action.act();
 	}
 
 	public boolean isHovered(int arg0, int arg1) {
@@ -48,19 +52,13 @@ public class Button implements ButtonInterfaceEdwin {
 	}
 
 	public void setColor(Color color) {
-		
-	}
-
-	public void setX(int X) {
-		
-	}
-
-	public void setY(int Y) {
-		
+		this.color = color;
+		displayColor = color;
+		update();
 	}
 
 	public void setAction(Action a) {
-		
+		this.action = a;
 	}
 
 	public void highlight() {
@@ -70,9 +68,4 @@ public class Button implements ButtonInterfaceEdwin {
 	public void dim() {
 		
 	}
-
-	public void gameOver() {
-		
-	}
-
 }
