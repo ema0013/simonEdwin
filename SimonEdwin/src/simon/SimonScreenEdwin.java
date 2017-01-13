@@ -143,7 +143,7 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 							
 						}
 						else{
-							b.gameOver();
+							progress.gameOver();
 							return;
 						}
 						if(sequenceIndex==sequence.size()){
