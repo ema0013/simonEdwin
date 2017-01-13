@@ -38,6 +38,10 @@ public class Button extends Component implements ButtonInterfaceEdwin {
 	public int getWidth() {
 		return WIDTH;
 	}
+	
+	public void highlight(){
+		
+	}
 
 	public void setColor(Color color) {
 		this.color = color;
