@@ -16,10 +16,10 @@ public class Button extends Component implements ButtonInterfaceEdwin {
 	private Color color;
 	private Color displayColor;
 	private Action action;
-	private boolean highlight;
 	
 	public Button() {
 		super(0, 0, WIDTH, HEIGHT);
+		update();
 	}
 
 	public void act() {
@@ -33,10 +33,6 @@ public class Button extends Component implements ButtonInterfaceEdwin {
 
 	public int getHeight() {
 		return HEIGHT;
-	}
-
-	public BufferedImage getImage() {
-		return null;
 	}
 
 	public int getWidth() {
@@ -53,17 +49,8 @@ public class Button extends Component implements ButtonInterfaceEdwin {
 		this.action = a;
 	}
 
-	public void highlight() {
-		if(color != null){
-			displayColor = color;
-		}
-		highlight = true;
-		update();
-	}
-
 	public void dim() {
 		displayColor = Color.BLACK;
-		highlight = false;
 		update();
 	}
 
@@ -76,19 +63,5 @@ public class Button extends Component implements ButtonInterfaceEdwin {
 		g.fillOval(0, 0, WIDTH, HEIGHT);
 		g.setColor(Color.BLACK);
 		g.drawOval(0, 0, WIDTH-1, HEIGHT-1);
-		if(highlight){
-			g.setColor(Color.white);
-			Polygon p = new Polygon();
-			
-			int s = (int)(5/8.0 * WIDTH);
-			int t = (int)(1.0/5*HEIGHT)+4;
-			p.addPoint(s-4, t-4);
-			p.addPoint(s+7, t-2);
-			p.addPoint(s+10, t);
-			p.addPoint(s+14, t+10);
-			p.addPoint(s+12, t+14);
-			p.addPoint(s+8, t+3);
-			g.fill(p);
-		}
 	}
 }
