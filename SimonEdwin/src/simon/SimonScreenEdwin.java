@@ -3,7 +3,6 @@ package simon;
 import java.awt.Color;
 import java.util.ArrayList;
 
-import gui6.Screen;
 import gui6.components.Action;
 import gui6.components.TextLabel;
 import gui6.components.Visible;
@@ -117,11 +116,12 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 	private void addButtons() {
 		int numberOfButtons = 6;
 		Color[] buttonColors = {Color.CYAN,Color.DARK_GRAY,Color.GREEN,Color.MAGENTA,Color.ORANGE,Color.YELLOW};
+		buttons = new ButtonInterfaceEdwin[numberOfButtons];
 		for(int i = 0; i < buttonColors.length;i++){
+			buttons[i].setColor(buttonColors[i]);
+			buttons[i].setX(50*i);
+			buttons[i].setY(40);
 			final ButtonInterfaceEdwin b = getAButton();
-			b.setColor(buttonColors[i]);
-			b.setX(50*i);
-			b.setY(40);
 			b.setAction(new Action(){
 				public void act(){
 					if(acceptingInput){
