@@ -119,8 +119,8 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 		buttons = new ButtonInterfaceEdwin[numberOfButtons];
 		for(int i = 0; i < buttonColors.length;i++){
 			buttons[i].setColor(buttonColors[i]);
-			buttons[i].setX(50*i);
-			buttons[i].setY(40);
+			buttons[i].setX((150*i)+50);
+			buttons[i].setY(290);
 			final ButtonInterfaceEdwin b = getAButton();
 			b.setAction(new Action(){
 				public void act(){
