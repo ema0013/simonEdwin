@@ -27,13 +27,11 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
 		label.setText("");
 		nextRound();
 	}
 
 	private void nextRound() {
-		// TODO Auto-generated method stub
 		acceptingInput = false;
 		roundNumber++;
 		progress.setRound(roundNumber);
@@ -120,7 +118,7 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 			buttons[i].setColor(buttonColors[i]);
 			buttons[i].setX((150*i)+50);
 			buttons[i].setY(290);//
-			final ButtonInterfaceEdwin b = getAButton();
+			final ButtonInterfaceEdwin b = buttons[i];
 			b.setAction(new Action(){
 				public void act(){
 					if(acceptingInput){
