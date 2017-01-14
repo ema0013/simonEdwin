@@ -9,7 +9,7 @@ import gui6.components.Visible;
 import gui6.screens.ClickableScreen;
 
 public class SimonScreenEdwin extends ClickableScreen implements Runnable {
-	
+
 	private TextLabel label;
 	private ButtonInterfaceEdwin[] buttons;
 	private ProgressInterfaceEdwin progress;
@@ -51,17 +51,16 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 		for(int i = 0; i < sequence.size();i++){
 			if(b!=null){
 				b.dim();
-				b = sequence.get(i).getButton();
-				int sleepTime =(3000*(3/(roundNumber+3)));
-				try{
-					Thread.sleep(sleepTime);
-				}catch(Exception e){
-					e.printStackTrace();
-				}
+			}
+			b = sequence.get(i).getButton();
+			int sleepTime =500;
+			try{
+				Thread.sleep(sleepTime);
+			}catch(Exception e){
+				e.printStackTrace();
 			}
 		}
 		b.dim();
-		
 	}
 
 	private void changeText(String s) {
@@ -86,7 +85,7 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 		roundNumber = 0;
 		viewObjects.add(progress);
 		viewObjects.add(label);
-		
+
 	}
 	private MoveInterfaceEdwin randomMove() {
 		int randomButton = (int)(Math.random()*buttons.length);
@@ -104,26 +103,28 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 
 	/**
 	Placeholder until partner finishes implementation of ProgressInterface
-	*/
+	 */
 	private ProgressInterfaceEdwin getProgress() {
 		// TODO Auto-generated method stub
 		return new partnerCodeInHerePlease.Progress();
 	}
 
 	private void addButtons() {
-		int numberOfButtons = 6;
-		Color[] buttonColors = {Color.CYAN,Color.DARK_GRAY,Color.GREEN,Color.MAGENTA,Color.ORANGE,Color.YELLOW};
+		int numberOfButtons = 4;
+		Color[] buttonColors = {Color.CYAN,Color.DARK_GRAY,Color.GREEN,Color.MAGENTA};
 		buttons = new ButtonInterfaceEdwin[numberOfButtons];
 		for(int i = 0; i < buttonColors.length;i++){
+			buttons[i] = getAButton();
 			buttons[i].setColor(buttonColors[i]);
 			buttons[i].setX((150*i)+50);
-			buttons[i].setY(290);//
+			buttons[i].setY(290);
 			final ButtonInterfaceEdwin b = buttons[i];
 			b.setAction(new Action(){
 				public void act(){
 					if(acceptingInput){
 						Thread blink = new Thread(new Runnable(){
 							public void run(){
+								b.highlight();
 								try {
 									Thread.sleep(800);
 								} catch (InterruptedException e) {
@@ -132,11 +133,10 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 								b.dim();
 							}
 						});
-						
 						blink.start();
 						if(b==sequence.get(sequenceIndex).getButton()){
 							sequenceIndex++;
-							
+
 						}
 						else{
 							progress.gameOver();
@@ -146,11 +146,11 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 							Thread nextRound = new Thread(SimonScreenEdwin.this);
 							nextRound.start();
 						}
-						
+
 					}
 				}
 			});
-			viewObjects.add(b);
+			viewObjects.add(buttons[i]);
 		}
 	}
 

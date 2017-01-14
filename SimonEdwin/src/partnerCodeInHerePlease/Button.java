@@ -3,7 +3,7 @@ package partnerCodeInHerePlease;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
-import java.awt.image.BufferedImage;
+import java.awt.RenderingHints;
 
 import gui6.components.Action;
 import gui6.components.Component;
@@ -16,6 +16,7 @@ public class Button extends Component implements ButtonInterfaceEdwin {
 	private Color color;
 	private Color displayColor;
 	private Action action;
+	private boolean highlight;
 	
 	public Button() {
 		super(0, 0, WIDTH, HEIGHT);
@@ -40,7 +41,11 @@ public class Button extends Component implements ButtonInterfaceEdwin {
 	}
 	
 	public void highlight(){
-		
+		if(color!= null){
+			displayColor = color;
+			highlight = true;
+			update();
+		}
 	}
 
 	public void setColor(Color color) {
@@ -55,14 +60,16 @@ public class Button extends Component implements ButtonInterfaceEdwin {
 
 	public void dim() {
 		displayColor = Color.BLACK;
+		highlight = false;
 		update();
 	}
 
 	public void update(Graphics2D g) {
-		if(displayColor != null){
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
+		if(displayColor!=null){
 			g.setColor(displayColor);
-		} else {
-			g.setColor(Color.BLACK);
+		}else{
+			g.setColor(Color.black);
 		}
 		g.fillOval(0, 0, WIDTH, HEIGHT);
 		g.setColor(Color.BLACK);

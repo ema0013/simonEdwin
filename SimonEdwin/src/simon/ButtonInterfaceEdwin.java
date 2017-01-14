@@ -12,4 +12,6 @@ public interface ButtonInterfaceEdwin extends Clickable {
 	void setAction(Action a);
 
 	void dim();
+
+	void highlight();
 }

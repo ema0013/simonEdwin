@@ -8,7 +8,7 @@ public class Move implements MoveInterfaceEdwin {
 	private ButtonInterfaceEdwin button;
 
 	public Move(ButtonInterfaceEdwin move) {
-		this.button = button;
+		this.button = move;
 	}
 
 	public ButtonInterfaceEdwin getButton() {

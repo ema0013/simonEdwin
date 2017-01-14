@@ -10,7 +10,7 @@ import simon.ProgressInterfaceEdwin;
 public class Progress extends Component implements ProgressInterfaceEdwin {
 
 	private static final int WIDTH = 200;
-	private static final int HEIGHT = 200;
+	private static final int HEIGHT = 100;
 	private boolean gameOver;
 	private int roundNumber;
 	private int sequenceSize;
