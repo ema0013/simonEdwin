@@ -23,47 +23,49 @@ public class Button extends Component implements ButtonInterfaceEdwin {
 		update();
 	}
 
+	@Override
 	public void act() {
 		action.act();
+
 	}
 
-	public boolean isHovered(int arg0, int arg1) {
+	@Override
+	public boolean isHovered(int x, int y) {
 		double distance = Math.sqrt((Math.pow(x-(getX()+WIDTH/2), 2)+Math.pow(y-(getY()+HEIGHT/2), 2)));
 		return distance < WIDTH/2;
 	}
 
-	public int getHeight() {
-		return HEIGHT;
+	@Override
+	public void setColor(Color color) {
+		this.color = color;
+
 	}
 
-	public int getWidth() {
-		return WIDTH;
+	@Override
+	public void setAction(Action a) {
+		this.action = a;
+
 	}
-	
-	public void highlight(){
+
+	@Override
+	public void highlight() {
 		if(color!= null){
 			displayColor = color;
 			highlight = true;
 			update();
 		}
+
 	}
 
-	public void setColor(Color color) {
-		this.color = color;
-		displayColor = color;
-		update();
-	}
-
-	public void setAction(Action a) {
-		this.action = a;
-	}
-
+	@Override
 	public void dim() {
-		displayColor = Color.BLACK;
+		displayColor = Color.black;
 		highlight = false;
 		update();
+
 	}
 
+	@Override
 	public void update(Graphics2D g) {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 		if(displayColor!=null){

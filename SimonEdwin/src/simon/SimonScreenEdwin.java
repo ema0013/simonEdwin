@@ -7,6 +7,9 @@ import gui6.components.Action;
 import gui6.components.TextLabel;
 import gui6.components.Visible;
 import gui6.screens.ClickableScreen;
+import partnerCodeInHerePlease.Button;
+import partnerCodeInHerePlease.Move;
+import partnerCodeInHerePlease.Progress;
 
 public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 
@@ -34,8 +37,8 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 	private void nextRound() {
 		acceptingInput = false;
 		roundNumber++;
-		progress.setRound(roundNumber);
 		sequence.add(randomMove());
+		progress.setRound(roundNumber);
 		progress.setSequenceSize(sequence.size());
 		changeText("Simon's turn");
 		label.setText("");
@@ -53,6 +56,7 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 				b.dim();
 			}
 			b = sequence.get(i).getButton();
+			b.highlight();
 			int sleepTime =500;
 			try{
 				Thread.sleep(sleepTime);
@@ -93,20 +97,15 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 			randomButton = (int)(Math.random()*buttons.length);
 		}
 		lastSelectedButton = randomButton;
-		return getMove(buttons[randomButton]);
+		return  getMove(buttons[randomButton]);
 	}
 
 	private MoveInterfaceEdwin getMove(ButtonInterfaceEdwin move) {
-		// TODO Auto-generated method stub
-		return new partnerCodeInHerePlease.Move(move);
+		return new Move(move);
 	}
-
-	/**
-	Placeholder until partner finishes implementation of ProgressInterface
-	 */
+	
 	private ProgressInterfaceEdwin getProgress() {
-		// TODO Auto-generated method stub
-		return new partnerCodeInHerePlease.Progress();
+		return new Progress();
 	}
 
 	private void addButtons() {
@@ -155,8 +154,7 @@ public class SimonScreenEdwin extends ClickableScreen implements Runnable {
 	}
 
 	private ButtonInterfaceEdwin getAButton() {
-		// TODO Auto-generated method stub
-		return new partnerCodeInHerePlease.Button();
+		return new Button();
 		//
 	}
 
